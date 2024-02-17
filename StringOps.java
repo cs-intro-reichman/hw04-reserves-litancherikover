@@ -27,6 +27,7 @@ public class StringOps {
 
     public static String capVowelsLowRest (String string) {
         // Write your code here:
+        System.out.println("hello how are you");;
         return "";
     }
 
