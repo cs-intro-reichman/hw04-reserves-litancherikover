@@ -23,11 +23,11 @@ public class StringOps {
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) 
     {
-        String answer_vowels=capVowlesLowRest("Hello World");   
+        String answer_vowels=capVowelsLowRest("Hello World");   
         System.out.println(answer_vowels);
     }
 
-    public static String capVowlesLowRest(String string) 
+    public static String capVowelsLowRest(String string) 
     {
         char[] result = new char[string.length()];
         String vowels = "aeiouAEIOU";
