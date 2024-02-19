@@ -7,6 +7,10 @@ public class ArrayOps {
         int[] exampleArray_second = {2,8,3,7,1};
         int SecondMaxValue = secondMaxValue(exampleArray_second);
         System.out.println("The second biggest number is:"+SecondMaxValue);
+        int[] array1 = {2,8,2,7,1};
+        int[] array2 = {2,8,2,7,1};
+        boolean containsTheSameElements_answer = containsTheSameElements(array1, array2);
+        System.out.println("Is both arrays have same digits:"+containsTheSameElements_answer);
 
     }
     
@@ -57,8 +61,38 @@ public class ArrayOps {
     }
 
     public static boolean containsTheSameElements(int [] array1,int [] array2) {
-        // Write your code here:
-        return false;
+        boolean Flag=false;
+        for(int i=0;i<array1.length;i++)
+        {
+            for(int k=0;k<array2.length;k++)
+            {
+                if(array1[i]==array2[k])
+                {
+                    Flag=true;
+                }
+            }
+            if(Flag==false)
+                {
+                    return false;
+                }
+            Flag=false;
+        }
+        for(int i=0;i<array2.length;i++)
+        {
+            for(int k=0;k<array1.length;k++)
+            {
+                if(array2[i]==array1[k])
+                {
+                    Flag=true;
+                }
+            }
+            if(Flag==false)
+                {
+                    return false;
+                }
+            Flag=false;
+        }
+        return true;
     }
 
     public static boolean isSorted(int [] array) {
