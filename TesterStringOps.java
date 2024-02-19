@@ -14,7 +14,6 @@ public class TesterStringOps {
         switch (functionName) {
             case "capVowelsLowRest":
                 testCapVowelsLowRest(inputNumber);
-                /*hello */
                 break;
             case "camelCase":
                 testCamelCase(inputNumber);
