@@ -1,9 +1,13 @@
 public class ArrayOps {
     public static void main(String[] args) 
     {
-        int[] exampleArray = {0};
-        int missingNumber = findMissingInt(exampleArray);
-        System.out.println(missingNumber);
+        int[] exampleArray_missing = {0};
+        int missingNumber = findMissingInt(exampleArray_missing);
+        System.out.println("The missing number is:"+missingNumber);
+        int[] exampleArray_second = {1, -2, 3, -4, 5};
+        int SecondMaxValue = secondMaxValue(exampleArray_second);
+        System.out.println("The second biggest number is:"+SecondMaxValue);
+
     }
     
     public static int findMissingInt (int [] array) 
@@ -32,9 +36,25 @@ public class ArrayOps {
         return Array_length;
     }
 
-    public static int secondMaxValue(int [] array) {
-        // Write your code here:
-        return 0;
+    public static int secondMaxValue(int [] array) 
+    {
+        int temp_max=array[0];
+        int max=array[0];
+        for (int i = 0; i < array.length; i++) 
+        {
+            if(array[i]>=temp_max)
+            {
+                temp_max=array[i];
+            }
+        }
+        for (int i = 0; i < array.length; i++) 
+        {
+            if(array[i]>=max && array[i]!=temp_max)
+            {
+                max=array[i];
+            }
+        }
+        return max;
     }
 
     public static boolean containsTheSameElements(int [] array1,int [] array2) {
