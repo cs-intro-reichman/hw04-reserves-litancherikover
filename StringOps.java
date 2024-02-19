@@ -21,14 +21,46 @@ public class StringOps {
     //////        in Recitation 3 question 5             ///////
     //////                                               ///////
     ////////////////////////////////////////////////////////////
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) 
+    {
+        String answer_vowels=capVowlesLowRest("Hello World");   
+        System.out.println(answer_vowels);
     }
 
-    public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        System.out.println("hello how are you");;
-        return "";
+    public static String capVowlesLowRest(String string) 
+    {
+        char[] result = new char[string.length()];
+        String vowels = "aeiouAEIOU";
+        for (int i = 0; i < string.length(); i++) 
+        {
+            char c = string.charAt(i);
+            boolean isVowel = vowels.indexOf(c) >= 0;
+            if (isVowel) 
+            {
+                // Convert to uppercase if it's a vowel
+                if (c >= 'a' && c <= 'z') 
+                {
+                    result[i] = (char) (c - 32);
+                } 
+                else 
+                {
+                    result[i] = c;
+                }
+            } 
+            else 
+            {
+                // Convert to lowercase if it's not a vowel
+                if (c >= 'A' && c <= 'Z') 
+                {
+                    result[i] = (char) (c + 32);
+                } 
+                else 
+                {
+                    result[i] = c;
+                }
+            }
+        }
+        return new String(result);
     }
 
     public static String camelCase (String string) {
