@@ -11,6 +11,9 @@ public class ArrayOps {
         int[] array2 = {2,8,2,7,1};
         boolean containsTheSameElements_answer = containsTheSameElements(array1, array2);
         System.out.println("Is both arrays have same digits:"+containsTheSameElements_answer);
+        int[] array_asc_desc = {1,2,-1,3};
+        boolean isSorted_answer = isSorted(array_asc_desc);
+        System.out.println("Is array decreasing or ascending:"+isSorted_answer);
 
     }
     
@@ -95,9 +98,33 @@ public class ArrayOps {
         return true;
     }
 
-    public static boolean isSorted(int [] array) {
-        // Write your code here:
-        return false;
+    public static boolean isSorted(int [] array) 
+    {
+        boolean increasing = true;
+        boolean decreasing = true;
+        // Check if the array is sorted in increasing order
+        for (int i = 0; i < array.length - 1; i++) 
+        {
+            if (array[i] > array[i + 1]) 
+            {
+                increasing = false;
+                break;
+            }
+        }
+
+        // Check if the array is sorted in decreasing order
+        if (!increasing) 
+        {
+            for (int i = 0; i < array.length - 1; i++) 
+            {
+                if (array[i] < array[i + 1]) 
+                {
+                    decreasing = false;
+                    break;
+                }
+            }
+        }
+        return increasing || decreasing;
     }
 
 }
