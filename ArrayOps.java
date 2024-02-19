@@ -1,7 +1,7 @@
 public class ArrayOps {
     public static void main(String[] args) 
     {
-        int[] exampleArray = {0,1,2,3,4,6};
+        int[] exampleArray = {0};
         int missingNumber = findMissingInt(exampleArray);
         System.out.println(missingNumber);
     }
@@ -17,19 +17,19 @@ public class ArrayOps {
         }
         /*Now, we will fill in the boolean array, the values that apear in the given array */
         for (int i = 0; i < array.length; i++) {
-            if (array[i] > 0 && array[i] <= Array_length) 
+            if (array[i] >= 0 && array[i] <= Array_length) 
             { // Only mark true if the number is within the range
                 boolArray[array[i]] = true;
             }
         }
-        for (int i = 1; i <= Array_length; i++) 
-        { // Start from 1 as we're looking for positive integers
+        for (int i = 0; i < Array_length; i++) 
+        { 
             if (!boolArray[i]) 
             {
                 return i;
             }
         }
-        return Array_length + 1;
+        return Array_length;
     }
 
     public static int secondMaxValue(int [] array) {
