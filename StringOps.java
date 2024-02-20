@@ -23,6 +23,7 @@ public class StringOps {
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) 
     {
+        //Different tests that i have created
         String answer_vowels=capVowelsLowRest("Hello World");   
         System.out.println(answer_vowels);
         String answer_camel=camelCase("HELLO world");   
@@ -100,7 +101,7 @@ public class StringOps {
                 {
                     if (c >= 'a' && c <= 'z') 
                     {
-                        result += (char) (c - 32); // Convert to uppercase
+                        result += (char) (c - 32); // Convert to upper
                     } 
                     else 
                     {
@@ -113,7 +114,7 @@ public class StringOps {
                 {
                     if (c >= 'A' && c <= 'Z')
                     {
-                        result += (char) (c + 32); // Convert to lowercase
+                        result += (char) (c + 32); // Convert to lower
                     } 
                     else
                     {
@@ -127,7 +128,7 @@ public class StringOps {
 
     public static int[] allIndexOf (String string, char chr) 
     {
-        // First pass: count occurrences of chr in string
+        // We are counting the number of occurences in the string
         int count = 0;
         for (int i = 0; i < string.length(); i++) 
         {
@@ -139,18 +140,22 @@ public class StringOps {
         }
 
         // Initialize an array of size count
-        int[] indices = new int[count];
-
-        // Second pass: fill the array with indices
+        int[] occurences = new int[count];
+        for (int i = 0; i < occurences.length; i++) 
+        {
+            occurences[i]=0;
+        }
+        // Now we fill the array that we will return. 
         int index = 0;
         for (int i = 0; i < string.length(); i++) 
         {
             if (string.charAt(i) == chr) 
             {
-                indices[index++] = i;
+                occurences[index++] = i;
             }
         }
-        return indices;
+        //the array will not return empty
+        return occurences;
     }
     
 }
