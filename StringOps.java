@@ -25,6 +25,8 @@ public class StringOps {
     {
         String answer_vowels=capVowelsLowRest("Hello World");   
         System.out.println(answer_vowels);
+        String answer_camel=camelCase("HELLO world");   
+        System.out.println(answer_camel);
     }
 
     public static String capVowelsLowRest(String string) 
@@ -63,9 +65,58 @@ public class StringOps {
         return new String(result);
     }
 
-    public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+    public static String camelCase (String string)
+     {
+        String result = "";
+        boolean isNewWord = false;
+        // Process first character
+        char firstChar = string.charAt(0);
+        if (firstChar >= 'A' && firstChar <= 'Z')
+        {
+            // conversion to lowercase
+            result += (char) (firstChar + 32); 
+        } 
+        else 
+        {
+            result += firstChar;
+        }
+
+        for (int i = 1; i < string.length(); i++) 
+        {
+            char c = string.charAt(i);
+            if (c == ' ') 
+            {
+                isNewWord = true;
+            } 
+            else 
+            {
+                if (isNewWord) 
+                {
+                    if (c >= 'a' && c <= 'z') 
+                    {
+                        result += (char) (c - 32); // Convert to uppercase
+                    } 
+                    else 
+                    {
+                        result += c;
+                    }
+                    //Not new word anymore
+                    isNewWord = false;
+                } 
+                else 
+                {
+                    if (c >= 'A' && c <= 'Z')
+                    {
+                        result += (char) (c + 32); // Convert to lowercase
+                    } 
+                    else
+                    {
+                        result += c;
+                    }
+                }
+            }
+        }
+        return result;
     }
 
     public static int[] allIndexOf (String string, char chr) {
