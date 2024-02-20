@@ -150,7 +150,6 @@ public class StringOps {
                 indices[index++] = i;
             }
         }
-
         return indices;
     }
     
