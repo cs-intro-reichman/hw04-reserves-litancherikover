@@ -27,6 +27,12 @@ public class StringOps {
         System.out.println(answer_vowels);
         String answer_camel=camelCase("HELLO world");   
         System.out.println(answer_camel);
+        int[] answer_indexes=allIndexOf("Hello world",'l');   
+        for (int i = 0; i < answer_indexes.length; i++) 
+        {
+            System.out.println(answer_indexes[i]);
+        }
+
     }
 
     public static String capVowelsLowRest(String string) 
@@ -119,8 +125,33 @@ public class StringOps {
         return result;
     }
 
-    public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+    public static int[] allIndexOf (String string, char chr) 
+    {
+        // First pass: count occurrences of chr in string
+        int count = 0;
+        for (int i = 0; i < string.length(); i++) 
+        {
+            if (string.charAt(i) == chr) 
+            {
+                //The number of cells in the new array
+                count++;
+            }
+        }
+
+        // Initialize an array of size count
+        int[] indices = new int[count];
+
+        // Second pass: fill the array with indices
+        int index = 0;
+        for (int i = 0; i < string.length(); i++) 
+        {
+            if (string.charAt(i) == chr) 
+            {
+                indices[index++] = i;
+            }
+        }
+
+        return indices;
     }
+    
 }
